@@ -23,11 +23,15 @@ public class Main {
         else System.out.println("New file created");
 
         try (
-                FileWriter writer = new FileWriter(filePath, false);
-                PrintWriter pw = new PrintWriter(writer);
+                FileWriter fileWriter = new FileWriter(filePath, false);
+                PrintWriter printWriter = new PrintWriter(fileWriter);
         ) {
 
-            pw.print(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-yyyy/hh:mm a")));
+            printWriter.print(
+                    LocalDateTime.now().format(
+                            DateTimeFormatter.ofPattern("dd-MMMM-yyyy/hh:mm a")
+                    )
+            );
 
         } catch (Exception e) {
             e.printStackTrace();
